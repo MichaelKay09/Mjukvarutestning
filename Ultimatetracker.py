@@ -1,18 +1,15 @@
 ##### MAIN MENU #####
+from Budget import Budget
 
+class Ultimatetracker(Budget):
 
-class UltimateTracker():
-  
-  def __init__(self):
+  def init(self):
         self.mainMenu()
-    
-    
-    
+
   def mainMenu(self):
 
-        print("\n****** WELCOME TO ULTIMATE TRACKER ******\n")
+        print("** WELCOME TO ULTIMATE TRACKER **\n")
         print("WHAT DO YOU WANT TO DAY?:")
-
         try:
 
             print("1 = SET BUDGET")
@@ -22,8 +19,10 @@ class UltimateTracker():
 
             selection=int(input("Enter 1-4: "))
 
-            if selection==1:
-                self.setBudget()
+
+            if selection==1: 
+                Budget.setBudget(self)
+                self.mainMenu()
             elif selection==2:
                 self.setTransaction()
             elif selection==3:
@@ -31,7 +30,7 @@ class UltimateTracker():
             elif selection==4:
                 exit
             else:
-                print("***INVALID***")
+                print("INVALID")
                 print("Try again!")
                 self.mainMenu()
         except:
@@ -39,7 +38,7 @@ class UltimateTracker():
             self.mainMenu()
 
 
-if __name__ == '__main__':
 
-    UltimateTracker()
+if name == 'main':
 
+    Ultimatetracker()
