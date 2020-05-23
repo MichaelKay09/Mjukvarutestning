@@ -1,5 +1,6 @@
 ##### MAIN MENU #####
 from Budget import Budget
+from Transaction import Transaction
 
 class Ultimatetracker(Budget):
 
@@ -24,7 +25,8 @@ class Ultimatetracker(Budget):
                 Budget.setBudget(self)
                 self.mainMenu()
             elif selection==2:
-                self.setTransaction()
+                Transaction.__init__(self)
+                self.mainMenu()
             elif selection==3:
                 self.seeHistory()
             elif selection==4:
