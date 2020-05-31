@@ -1,35 +1,42 @@
 from datetime import date
+from Budget import Budget
 
 
-class Transaction:
-
+class Transaction(Budget):
+    name, amount, date = "", "", ""
     transactions = []
     trans_id = 0
+    budget = Budget()
 
-    def __init__(self, name, amount, category, date):
-        self.name = name
-        self.amount = amount
-        self.category = category
-        self.date = date
-        self.Add_Transaction()
+    def Add_Transaction(self, name, amount, myDate):
+        try:
+            num = 0
+            self.name = name
+            self.amount = int(amount)
+            if(len(Transaction.budgetlist) <= 0):
+                print("Please set budget first")
 
+            else:
+                print(
+                    "\nChoose the budget to add the transaction to from the list below")
+                Transaction.Budget_list()
+                print("\n")
+                num = int(input("Write the number of your choice: "))
+                budget_name = Transaction.budget.find_budget_name(num)
+                Transaction.transactions.append("Name: {}, Amount: {}kr, Date: {}, Type: {}".format(
+                    self.name, self.amount, myDate, budget_name))
+                amount = int(amount)
+                Transaction.budget.update_budget(num, amount)
 
-    def Add_Transaction(self):
-        Transaction.trans_id += 1
-        Transaction.transactions.append("id:{}, {} {} {} {}".format(self.trans_id, self.name, self.category, self.amount, self.date))
+        except:
+            print("Wrong format!!!")
 
+    def Budget_list():
+        Transaction.budget.seeHistory()
 
-
-    def get_all_transc():
-        for x in Transaction.transactions:
-            print(x)
-
-
-trans_1 = Transaction("coop", 300, "food", date.today())
-trans_2 = Transaction("willys", 1000, "food", date.today())
-trans_3 = Transaction("lidl", 500, "food", date.today())
-trans_4 = Transaction("tempo", 100, "food", date.today())
-
-# print(trans_1.get_transac())
-Transaction.get_all_transc()
-
+    def get_all_transc(self):
+        if(len(Transaction.transactions) <= 0):
+            print("No records has been registered!!!")
+        else:
+            for x in Transaction.transactions:
+                print(str(x))
