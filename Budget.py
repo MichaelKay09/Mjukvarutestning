@@ -21,7 +21,7 @@ class Budget():
                 Budget.budgetlist.append(
                     [self.budget_name, self.budget_amount, self.date, self.budget_id])
                 Budget.budget_id += 1
-                print("Budget for {} has been created and {} has been added to it".format(
+                print("Budget for {} has been created and {} kr has been added to it".format(
                     self.budget_name, self.budget_amount))
         except:
             print("Error!!!")
