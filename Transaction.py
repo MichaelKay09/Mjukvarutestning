@@ -23,10 +23,11 @@ class Transaction(Budget):
                 print("\n")
                 num = int(input("Write the number of your choice: "))
                 budget_name = Transaction.budget.find_budget_name(num)
-                Transaction.transactions.append("Name: {}, Amount: {}kr, Date: {}, Type: {}".format(
-                    self.name, self.amount, myDate, budget_name))
                 amount = int(amount)
-                Transaction.budget.update_budget(num, amount)
+                #Transaction.budget.update_budget(num, amount)
+                if(Transaction.budget.update_budget(num, amount) == True):
+                    Transaction.transactions.append("Name: {}, Amount: {}kr, Date: {}, Type: {}".format(
+                    self.name, self.amount, myDate, budget_name))
 
         except:
             print("Wrong format!!!")
