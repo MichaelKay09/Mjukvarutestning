@@ -44,6 +44,7 @@ class Budget():
             print("ERROR COULD NOT ADD TRANSACTION!!!")
 
         else:
+            transaction_added = False
             indx = int(index)
             mybudget = Budget.budgetlist[indx][1]
             if(mybudget < amount):
@@ -52,3 +53,5 @@ class Budget():
                 nybudget = mybudget - amount
                 Budget.budgetlist[indx][1] = nybudget
                 print("Transaction Added")
+                transaction_added = True
+            return transaction_added
