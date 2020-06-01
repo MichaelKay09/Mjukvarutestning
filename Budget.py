@@ -18,6 +18,7 @@ class Budget():
             else:
                 self.budget_name = name
                 self.budget_amount = int(amount)
+                self.date = datetime.today().strftime("%Y-%m-%d")
                 Budget.budgetlist.append(
                     [self.budget_name, self.budget_amount, self.date, self.budget_id])
                 Budget.budget_id += 1
