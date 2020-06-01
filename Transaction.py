@@ -19,7 +19,7 @@ class Transaction(Budget):
             else:
                 print(
                     "\nChoose the budget to add the transaction to from the list below")
-                Transaction.Budget_list()
+                Transaction.Budget_list(self)
                 print("\n")
                 num = int(input("Write the number of your choice: "))
                 budget_name = Transaction.budget.find_budget_name(num)
@@ -32,7 +32,7 @@ class Transaction(Budget):
         except:
             print("Wrong format!!!")
 
-    def Budget_list():
+    def Budget_list(self):
         Transaction.budget.seeHistory()
 
     def get_all_transc(self):
